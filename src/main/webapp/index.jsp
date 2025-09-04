@@ -51,7 +51,7 @@
 				<span class="error-message"><c:out value='${errors.captcha}'/></span>
 			</p>
 			<div class="button-group">
-				<input type="submit" value="確認">
+				<input type="submit" value="確認">h
 			</div>
 		</form>
 		<div class="button-group">
