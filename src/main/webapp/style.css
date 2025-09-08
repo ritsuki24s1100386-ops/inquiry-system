@@ -170,3 +170,11 @@ label {
     display: inline-block;
     margin-bottom: 4px;
 }
+
+.category-text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    display: inline-block;
+}

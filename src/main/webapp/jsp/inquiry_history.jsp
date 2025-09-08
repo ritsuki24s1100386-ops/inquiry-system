@@ -19,6 +19,23 @@
 						<p><strong>メールアドレス:</strong> <c:out value="${inquiry.email}"/></p>
 						<p><strong>内容:</strong></p>
 						<pre><c:out value="${inquiry.content}"/></pre>
+						<p><strong>カテゴリ:</strong>
+							<c:choose>
+								<c:when test="${inquiry.category == 'product'}">製品について</c:when>
+								<c:when test="${inquiry.category == 'bug'}">不具合報告</c:when>
+								<c:when test="${inquiry.category == 'request'}">機能リクエスト</c:when>
+								<c:when test="${inquiry.category == 'other'}">
+								その他
+									<c:if test="${not empty inquiry.otherCategory}">
+										<div class="category-value">
+											<c:out value="${inquiry.otherCategory}"/>
+										</div>
+									</c:if>
+								</c:when>
+							</c:choose>
+						</p>
+
+						
 						<p><strong>添付ファイル:</strong>
 							<c:choose>
 								<c:when test="${not empty inquiry.attachmentFileName}">

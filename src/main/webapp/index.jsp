@@ -33,13 +33,18 @@
 				<span id="content-count">0 / 200文字</span>
 			</p>
 			<p>
-				<label>カテゴリ(複数選択可)<span class="required">必須</span></label><br>
-				<label><input type="checkbox" name="category" value="product">製品について</label><br>
-				<label><input type="checkbox" name="category" value="bug">不具合報告</label><br>
-				<label><input type="checkbox" name="category" value="request">リクエスト</label><br>
-				<label><input type="checkbox" name="category" value="other">その他</label>
+				<label for="category">カテゴリー<span class="required">必須</span></label><br>
+				<label><input type="radio" name="category" value="product">製品について</label><br>
+				<label><input type="radio" name="category" value="bug">不具合報告</label><br>
+				<label><input type="radio" name="category" value="request">リクエスト</label><br>
+				<label><input type="radio" id="category-other" name="category" value="other"> その他</label>
 				<span class="error-message"><c:out value='${errors.category}'/></span>
 			</p>
+			<div id="other-text-wrapper" style="display:none; margin-top:5px;">
+			    <label for="otherCategory">詳細:</label>
+			    <input type="text" id="otherCategory" name="otherCategory" placeholder="ご自由にご記入ください">
+			</div>
+
 			<p>
 				<label for="attachment">添付ファイル(任意)</label>
 				<input type="file" id="attachment" name="attachment">
@@ -51,7 +56,7 @@
 				<span class="error-message"><c:out value='${errors.captcha}'/></span>
 			</p>
 			<div class="button-group">
-				<input type="submit" value="確認">h
+				<input type="submit" value="確認">
 			</div>
 		</form>
 		<div class="button-group">
@@ -81,6 +86,10 @@
 			document.querySelector('#content + .error-message').textContent = '内容は必須です。';
 			isValid = false;
 		}
+		if (content.value.trim() === '') {
+			document.querySelector('#category + .error-message').textContent = 'カテゴリーの選択は必須です。';
+			isValid = false;
+		}
 		if (captcha.value.trim() === '') {
 			document.querySelector('#captcha + .error-message').textContent = 'スパム対策の質問に答えてください。';
 			isValid = false;
@@ -98,7 +107,7 @@
 	function toHalfWidth(str) {
 		return str.replace(/[\uFF01-\uFF5E]/g, function(ch) {
 			return String.fromCharCode(ch.charCodeAt(0) - 0xFEE0);
-			}).replace(/\u3000/g, " "); // 全角スペースを半角スペースにする
+			}).replace(/　/g, " "); // 全角スペースを半角スペースにする
 			}
 
 	window.onload = function() {
@@ -115,6 +124,22 @@
 	    bindHalfWidth(email);
 	    bindHalfWidth(captcha);
 	    };
+	    
+	    document.addEventListener("DOMContentLoaded", function() {
+	        const radios = document.querySelectorAll("input[name='category']");
+	        const otherRadio = document.getElementById("category-other");
+	        const otherTextWrapper = document.getElementById("other-text-wrapper");
+
+	        radios.forEach(radio => {
+	            radio.addEventListener("change", function() {
+	                if (otherRadio.checked) {
+	                    otherTextWrapper.style.display = "block";
+	                } else {
+	                    otherTextWrapper.style.display = "none";
+	                }
+	            });
+	        });
+	    });
 </script>
 </body>
 </html>

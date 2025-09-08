@@ -6,6 +6,8 @@ public class Inquiry {
 	private String content;
 	private String attachmentFileName;
 	private String status;
+	private String category;
+	private String otherCategory;
 
 	public Inquiry() {
 		this.status = "新規";
@@ -27,6 +29,19 @@ public class Inquiry {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getCategory() {
+	    return category;
+	}
+	public void setCategory(String category) {
+	    this.category = category;
+	}
+
+	public String getOtherCategory() {
+	    return otherCategory;
+	}
+	public void setOtherCategory(String otherCategory) {
+	    this.otherCategory = otherCategory;
 	}
 	public String getAttachmentFileName() {
 		return attachmentFileName;

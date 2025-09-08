@@ -17,6 +17,18 @@
 			<p><strong>メールアドレス:</strong> <%= request.getAttribute("email") %></p>
 			<p><strong>内容:</strong></p>
 			<pre><%= request.getAttribute("content") %></pre>
+			<p><strong>カテゴリ:</strong>
+				<c:choose>
+					<c:when test="${inquiry.category == 'product'}">製品について</c:when>
+					<c:when test="${inquiry.category == 'bug'}">不具合報告</c:when>
+					<c:when test="${inquiry.category == 'request'}">機能リクエスト</c:when>
+					<c:when test="${inquiry.category == 'other'}">その他
+						<c:if test="${not empty inquiry.otherCategory}">
+							<c:out value="${inquiry.otherCategory}"/>
+						</c:if>
+					</c:when>
+				</c:choose>
+			</p>
 			<p><strong>添付ファイル:</strong>
 				<% String attachmentFileName = (String) request.getAttribute("attachmentFileName"); %>
 				<% if (attachmentFileName != null && !attachmentFileName.isEmpty()) { %>
