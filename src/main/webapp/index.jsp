@@ -10,8 +10,8 @@
 	<div class="container">
     	<h1>お問い合わせフォーム</h1>
     	<p class="subtitle">
-    	    お気軽にお問い合わせください。<br>
-    	    以下のをご入力お願いいたします。
+    	    こちらはお客様専用フォームとなっています<br>
+    	    営業メールは受け付けておりません
     	</p>
 		<form action="inquiry" method="post" onsubmit="return validateForm()" enctype="multipart/form-data">
 			<p>

@@ -74,11 +74,6 @@ import java.util.Random;
 			    email = email.trim();
 			}
 			String content = req.getParameter("content");
-			String category = req.getParameter("category");
-			String otherCategory = null;
-			if ("other".equals(category)) {
-			    otherCategory = req.getParameter("otherCategory"); // その他の入力欄
-			}
 			String captchaInput = req.getParameter("captcha");
 			String fileName = null;
 			try {
@@ -95,11 +90,7 @@ import java.util.Random;
 			inquiry.setName(name);
 			inquiry.setEmail(email);
 			inquiry.setContent(content);
-			inquiry.setCategory(category);
-			inquiry.setOtherCategory(otherCategory);
 			inquiry.setAttachmentFileName(fileName);
-			inquiry.setCategory(category);
-			inquiry.setOtherCategory(otherCategory);
 			Map<String, String> errors = new HashMap<>();
 			if (name == null || name.trim().isEmpty()) {
 				errors.put("name", "名前は必須です。");

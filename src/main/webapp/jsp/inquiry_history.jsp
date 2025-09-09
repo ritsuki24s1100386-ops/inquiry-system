@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container">
-		<h1>お問い合わせ履歴</h1>
+		<h1>お問い合わせ履歴</h1>		
 		<c:choose>
 			<c:when test="${not empty inquiries}">
 				<c:forEach var="inquiry" items="${inquiries}" varStatus="status">
@@ -27,9 +27,7 @@
 								<c:when test="${inquiry.category == 'other'}">
 								その他
 									<c:if test="${not empty inquiry.otherCategory}">
-										<div class="category-value">
-											<c:out value="${inquiry.otherCategory}"/>
-										</div>
+										<c:out value="${inquiry.otherCategory}"/>
 									</c:if>
 								</c:when>
 							</c:choose>
