@@ -37,7 +37,7 @@
 				<label><input type="radio" name="category" value="product">製品について</label><br>
 				<label><input type="radio" name="category" value="bug">不具合報告</label><br>
 				<label><input type="radio" name="category" value="request">リクエスト</label><br>
-				<label><input type="radio" id="category-other" name="category" value="other"> その他</label>
+				<label><input type="radio" id="category-other" name="category" value="other">その他</label>
 				<span class="error-message"><c:out value='${errors.category}'/></span>
 			</p>
 			<div id="other-text-wrapper" style="display:none; margin-top:5px;">
