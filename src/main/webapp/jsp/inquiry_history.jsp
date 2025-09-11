@@ -24,7 +24,6 @@
 								<c:when test="${inquiry.category == 'product'}">製品について</c:when>
 								<c:when test="${inquiry.category == 'bug'}">不具合報告</c:when>
 								<c:when test="${inquiry.category == 'request'}">機能リクエスト</c:when>
-								<c:when test="${inquiry.category == 'sales'}">営業目的(営業権の購入に同意する)</c:when>
 								<c:when test="${inquiry.category == 'other'}">
 								その他
 									<c:if test="${not empty inquiry.otherCategory}">
