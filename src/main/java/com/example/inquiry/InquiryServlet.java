@@ -90,6 +90,10 @@ import java.util.Random;
 			inquiry.setName(name);
 			inquiry.setEmail(email);
 			inquiry.setContent(content);
+			inquiry.setCategory(req.getParameter("category"));
+			if ("other".equals("category") && "otherCategory" != null && !"otherCategory".trim().isEmpty()) {
+			    inquiry.setOtherCategory("otherCategory".trim());
+			}
 			inquiry.setAttachmentFileName(fileName);
 			Map<String, String> errors = new HashMap<>();
 			if (name == null || name.trim().isEmpty()) {
